@@ -39,7 +39,6 @@ Scenario: sort movies alphabetically
   
   
 
-
 Scenario: sort movies in increasing order of release date
   When I follow "Release Date"
   
