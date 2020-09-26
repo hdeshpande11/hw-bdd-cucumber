@@ -22,9 +22,9 @@ Feature: display list of movies filtered by MPAA rating
 
   Scenario: restrict to movies with 'PG' or 'R' ratings  # features/filter_movie_list.feature:25
       # enter step(s) to check the 'PG' and 'R' checkboxes
-    When I check the following ratings: PG, R            # features/step_definitions/movie_steps.rb:29
+    When I check the following ratings: PG, R            # features/step_definitions/movie_steps.rb:25
       # enter step(s) to uncheck all other checkboxes
-    And I uncheck the following ratings: PG-13, G, NC-17 # features/step_definitions/movie_steps.rb:29
+    And I uncheck the following ratings: PG-13, G, NC-17 # features/step_definitions/movie_steps.rb:25
       # enter step to "submit" the search form on the homepage
     And I press "Refresh"                                # features/step_definitions/web_steps.rb:52
       # enter step(s) to ensure that PG and R movies are visible
@@ -42,10 +42,10 @@ Feature: display list of movies filtered by MPAA rating
     And I should not see "Chicken Run"                   # features/step_definitions/web_steps.rb:123
 
   Scenario: all ratings selected                               # features/filter_movie_list.feature:48
-    When I check the following ratings: PG, R, G, NC-17, PG-13 # features/step_definitions/movie_steps.rb:29
+    When I check the following ratings: PG, R, G, NC-17, PG-13 # features/step_definitions/movie_steps.rb:25
     And I press "Refresh"                                      # features/step_definitions/web_steps.rb:52
     Then I should be on the homepage                           # features/step_definitions/web_steps.rb:230
-    And I should see all the movies                            # features/step_definitions/movie_steps.rb:41
+    And I should see all the movies                            # features/step_definitions/movie_steps.rb:35
 
 Feature: display list of movies sorted by different criteria
   As an avid moviegoer
@@ -71,29 +71,31 @@ Feature: display list of movies sorted by different criteria
   Scenario: sort movies alphabetically                              # features/sort_movie_list.feature:25
     When I follow "Movie Title"                                     # features/step_definitions/web_steps.rb:56
     Then I should be on the homepage                                # features/step_definitions/web_steps.rb:230
-    And I should see "2001: A Space Odyssey" before "Aladdin"       # features/step_definitions/movie_steps.rb:19
-    And I should see "Aladdin" before "Amelie"                      # features/step_definitions/movie_steps.rb:19
-    And I should see "Amelie" before "Chicken Run"                  # features/step_definitions/movie_steps.rb:19
-    And I should see "Chicken Run" before "Chocolat"                # features/step_definitions/movie_steps.rb:19
-    And I should see "Chocolat" before "Raiders of the Lost Ark"    # features/step_definitions/movie_steps.rb:19
-    And I should see "Raiders of the Lost Ark" before "The Help"    # features/step_definitions/movie_steps.rb:19
-    And I should see "The Help" before "Incredibles"                # features/step_definitions/movie_steps.rb:19
-    And I should see "The Incredibles" before "The Terminator"      # features/step_definitions/movie_steps.rb:19
-    And I should see "The Terminator" before "When Harry Met Sally" # features/step_definitions/movie_steps.rb:19
+      #movies in alphabetical order
+    And I should see "2001: A Space Odyssey" before "Aladdin"       # features/step_definitions/movie_steps.rb:18
+    And I should see "Aladdin" before "Amelie"                      # features/step_definitions/movie_steps.rb:18
+    And I should see "Amelie" before "Chicken Run"                  # features/step_definitions/movie_steps.rb:18
+    And I should see "Chicken Run" before "Chocolat"                # features/step_definitions/movie_steps.rb:18
+    And I should see "Chocolat" before "Raiders of the Lost Ark"    # features/step_definitions/movie_steps.rb:18
+    And I should see "Raiders of the Lost Ark" before "The Help"    # features/step_definitions/movie_steps.rb:18
+    And I should see "The Help" before "Incredibles"                # features/step_definitions/movie_steps.rb:18
+    And I should see "The Incredibles" before "The Terminator"      # features/step_definitions/movie_steps.rb:18
+    And I should see "The Terminator" before "When Harry Met Sally" # features/step_definitions/movie_steps.rb:18
 
-  Scenario: sort movies in increasing order of release date                   # features/sort_movie_list.feature:42
+  Scenario: sort movies in increasing order of release date                   # features/sort_movie_list.feature:43
     When I follow "Release Date"                                              # features/step_definitions/web_steps.rb:56
     Then I should be on the homepage                                          # features/step_definitions/web_steps.rb:230
-    And I should see "2001: A Space Odyssey" before "Raiders of the Lost Ark" # features/step_definitions/movie_steps.rb:19
-    And I should see "Raiders of the Lost Ark" before "The Terminator"        # features/step_definitions/movie_steps.rb:19
-    And I should see "The Terminator" before "When Harry Met Sally"           # features/step_definitions/movie_steps.rb:19
-    And I should see "When Harry Met Sally" before "Aladdin"                  # features/step_definitions/movie_steps.rb:19
-    And I should see "Aladdin" before "Chicken Run"                           # features/step_definitions/movie_steps.rb:19
-    And I should see "Chicken Run" before "Chocolat"                          # features/step_definitions/movie_steps.rb:19
-    And I should see "Chocolat" before "Amelie"                               # features/step_definitions/movie_steps.rb:19
-    And I should see "Amelie" before "The Incredibles"                        # features/step_definitions/movie_steps.rb:19
-    And I should see "The Incredibles" before "The Help"                      # features/step_definitions/movie_steps.rb:19
+      #movies in order of release date
+    And I should see "2001: A Space Odyssey" before "Raiders of the Lost Ark" # features/step_definitions/movie_steps.rb:18
+    And I should see "Raiders of the Lost Ark" before "The Terminator"        # features/step_definitions/movie_steps.rb:18
+    And I should see "The Terminator" before "When Harry Met Sally"           # features/step_definitions/movie_steps.rb:18
+    And I should see "When Harry Met Sally" before "Aladdin"                  # features/step_definitions/movie_steps.rb:18
+    And I should see "Aladdin" before "Chicken Run"                           # features/step_definitions/movie_steps.rb:18
+    And I should see "Chicken Run" before "Chocolat"                          # features/step_definitions/movie_steps.rb:18
+    And I should see "Chocolat" before "Amelie"                               # features/step_definitions/movie_steps.rb:18
+    And I should see "Amelie" before "The Incredibles"                        # features/step_definitions/movie_steps.rb:18
+    And I should see "The Incredibles" before "The Help"                      # features/step_definitions/movie_steps.rb:18
 
 4 scenarios (4 passed)
 52 steps (52 passed)
-0m0.429s
+0m0.397s

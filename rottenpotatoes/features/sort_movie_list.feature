@@ -27,6 +27,7 @@ Scenario: sort movies alphabetically
   
   Then I should be on the homepage
   
+  #movies in alphabetical order
   And I should see "2001: A Space Odyssey" before "Aladdin"
   And I should see "Aladdin" before "Amelie"
   And I should see "Amelie" before "Chicken Run"
@@ -44,6 +45,7 @@ Scenario: sort movies in increasing order of release date
   
   Then I should be on the homepage
   
+  #movies in order of release date
   And I should see "2001: A Space Odyssey" before "Raiders of the Lost Ark"
   And I should see "Raiders of the Lost Ark" before "The Terminator"
   And I should see "The Terminator" before "When Harry Met Sally"
