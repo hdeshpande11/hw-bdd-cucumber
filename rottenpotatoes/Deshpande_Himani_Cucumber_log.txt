@@ -81,7 +81,7 @@ Feature: display list of movies sorted by different criteria
     And I should see "The Incredibles" before "The Terminator"      # features/step_definitions/movie_steps.rb:19
     And I should see "The Terminator" before "When Harry Met Sally" # features/step_definitions/movie_steps.rb:19
 
-  Scenario: sort movies in increasing order of release date                   # features/sort_movie_list.feature:43
+  Scenario: sort movies in increasing order of release date                   # features/sort_movie_list.feature:42
     When I follow "Release Date"                                              # features/step_definitions/web_steps.rb:56
     Then I should be on the homepage                                          # features/step_definitions/web_steps.rb:230
     And I should see "2001: A Space Odyssey" before "Raiders of the Lost Ark" # features/step_definitions/movie_steps.rb:19
@@ -96,4 +96,4 @@ Feature: display list of movies sorted by different criteria
 
 4 scenarios (4 passed)
 52 steps (52 passed)
-0m0.473s
+0m0.453s
